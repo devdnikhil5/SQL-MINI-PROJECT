@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Book New Appointment</h2>
+<form method="POST" class="mt-4">
+    <div class="mb-3">
+        <label class="form-label">Patient</label>
+        <select name="patient_id" class="form-select" required>
+            <option value="">Select Patient</option>
+            {% for patient in patients %}
+            <option value="{{ patient.PatientID }}">{{ patient.Name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Doctor</label>
+        <select name="doctor_id" class="form-select" required>
+            <option value="">Select Doctor</option>
+            {% for doctor in doctors %}
+            <option value="{{ doctor.DoctorID }}">{{ doctor.Name }} - {{ doctor.Specialty }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Appointment Date & Time</label>
+        <input type="datetime-local" name="appointment_date" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Notes</label>
+        <textarea name="notes" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Status</label>
+        <select name="status" class="form-select">
+            <option value="Scheduled">Scheduled</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-warning">Book Appointment</button>
+    <a href="/appointments" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

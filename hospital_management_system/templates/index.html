@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h1 class="display-4">Hospital Management System</h1>
+    <p class="lead">Comprehensive Patient Care Management</p>
+</div>
+
+<div class="row text-center">
+    <div class="col-md-4 mb-4">
+        <div class="card border-primary">
+            <div class="card-body">
+                <h2 class="text-primary">{{ patients }}</h2>
+                <h5>Total Patients</h5>
+                <a href="/patients" class="btn btn-primary mt-3">View All</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card border-success">
+            <div class="card-body">
+                <h2 class="text-success">{{ doctors }}</h2>
+                <h5>Total Doctors</h5>
+                <a href="/doctors" class="btn btn-success mt-3">View All</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card border-warning">
+            <div class="card-body">
+                <h2 class="text-warning">{{ appointments }}</h2>
+                <h5>Total Appointments</h5>
+                <a href="/appointments" class="btn btn-warning mt-3">View All</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5">
+    <h3>Quick Actions</h3>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <a href="/add_patient" class="btn btn-outline-primary btn-lg w-100">+ Add Patient</a>
+        </div>
+        <div class="col-md-4">
+            <a href="/add_doctor" class="btn btn-outline-success btn-lg w-100">+ Add Doctor</a>
+        </div>
+        <div class="col-md-4">
+            <a href="/add_appointment" class="btn btn-outline-warning btn-lg w-100">+ Book Appointment</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
